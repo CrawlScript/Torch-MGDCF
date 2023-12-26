@@ -1,0 +1,15 @@
+python -u main_mgdcf.py \
+    --dataset 'light_gcn_gowalla' \
+    --embedding_size 64 \
+    --lr 1e-2 \
+    --l2_coef 1e-4 \
+    --lr_decay 0.995 \
+    --k 4 \
+    --alpha 0.1 \
+    --beta 0.9 \
+    --x_drop_rate 0.45 \
+    --edge_drop_rate 0.0 \
+    --z_drop_rate 0.3 \
+    --num_negs 300 \
+    --batch_size 8000 \
+    --num_epochs 2000
