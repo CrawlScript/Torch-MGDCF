@@ -1,8 +1,9 @@
 
 import os
+# set gpu id
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 import argparse
-from torch_mgdcf.losses import bpr
+from torch_mgdcf.losses import compute_bpr_loss, compute_l2_loss
 from torch_mgdcf.utils import create_tensor_dataloader
 from torch_mgdcf.datasets import load_dataset
 from torch_mgdcf.layers.light_gcn import LightGCN
@@ -93,10 +94,10 @@ for epoch in range(num_epochs):
         model.train()
         user_h, item_h = forward()
         # using BPR as ranking loss
-        mf_losses = bpr(user_h, item_h, batch_edges, reduction="none")
+        mf_losses = compute_bpr_loss(user_h, item_h, batch_edges, reduction="none")
 
-
-        l2_loss = embeddings.pow(2).sum() * 0.5
+        # LightGCN applies L2 regularization on input embeddings
+        l2_loss = compute_l2_loss([embeddings])
 
         loss = mf_losses.sum() + l2_loss * l2_coef
 

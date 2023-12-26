@@ -3,7 +3,7 @@ import os
 # set gpu id
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import argparse
-from torch_mgdcf.losses import bpr, info_bpr
+from torch_mgdcf.losses import compute_bpr_loss, compute_info_bpr_loss, compute_l2_loss
 from torch_mgdcf.utils import create_tensor_dataloader
 from torch_mgdcf.datasets import load_dataset
 from torch_mgdcf.layers.mgdcf import MGDCF
@@ -109,9 +109,10 @@ for epoch in range(num_epochs):
         user_h, item_h = forward()
 
         # Using MGDCF's InfoBPR as ranking loss
-        mf_losses = info_bpr(user_h, item_h, batch_edges, num_negs=num_negs, reduction="none")
+        mf_losses = compute_info_bpr_loss(user_h, item_h, batch_edges, num_negs=num_negs, reduction="none")
 
-        l2_loss = embeddings.pow(2).sum() * 0.5
+        # MGDCF applies L2 Regularization on the output embeddings
+        l2_loss = compute_l2_loss([user_h, item_h])
 
         loss = mf_losses.sum() + l2_loss * l2_coef
 

@@ -3,7 +3,7 @@ import torch
 import numpy as np
 import torch.nn.functional as F
 
-def info_bpr(a_embeddings, b_embeddings, pos_edges, num_negs=300, reduction='mean'):
+def compute_info_bpr_loss(a_embeddings, b_embeddings, pos_edges, num_negs=300, reduction='mean'):
 
     if isinstance(pos_edges, list):
         pos_edges = np.array(pos_edges)
@@ -36,12 +36,19 @@ def info_bpr(a_embeddings, b_embeddings, pos_edges, num_negs=300, reduction='mea
     return info_bpr_loss
 
 
-def bpr(a_embeddings, b_embeddings, pos_edges, reduction='mean'):
+def compute_bpr_loss(a_embeddings, b_embeddings, pos_edges, reduction='mean'):
     """
     bpr is a special case of info_bpr, where num_negs=1
     """
-    return info_bpr(a_embeddings, b_embeddings, pos_edges, num_negs=1, reduction=reduction)
+    return compute_info_bpr_loss(a_embeddings, b_embeddings, pos_edges, num_negs=1, reduction=reduction)
 
     
-
+def compute_l2_loss(params):
+    """
+    Compute l2 loss for a list of parameters/tensors
+    """
+    l2_loss = 0.0
+    for param in params:
+        l2_loss += param.pow(2).sum() * 0.5
+    return l2_loss
     
