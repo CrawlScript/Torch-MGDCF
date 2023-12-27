@@ -113,6 +113,8 @@ for epoch in range(num_epochs):
 
         # MGDCF applies L2 Regularization on the output embeddings
         l2_loss = compute_l2_loss([user_h, item_h])
+        # You can also apply L2 Regularization on the input embeddings instead
+        # l2_loss = compute_l2_loss([embeddings])
 
         loss = mf_losses.sum() + l2_loss * l2_coef
 
