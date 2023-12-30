@@ -40,12 +40,14 @@ sh run_mgdcf_amazon-book.sh
 ## Cite
 
 ```
-@misc{hu2022mgdcf,
-      title={MGDCF: Distance Learning via Markov Graph Diffusion for Neural Collaborative Filtering}, 
-      author={Jun Hu and Shengsheng Qian and Quan Fang and Changsheng Xu},
-      year={2022},
-      eprint={2204.02338},
-      archivePrefix={arXiv},
-      primaryClass={cs.SI}
+@misc{https://doi.org/10.48550/arxiv.2204.02338,
+  doi = {10.48550/ARXIV.2204.02338},
+  url = {https://arxiv.org/abs/2204.02338},
+  author = {Jun Hu and Bryan Hooi and Shengsheng Qian and Quan Fang and Changsheng Xu},
+  keywords = {Social and Information Networks (cs.SI), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {MGDCF: Distance Learning via Markov Graph Diffusion for Neural Collaborative Filtering},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license}
 }
 ```
