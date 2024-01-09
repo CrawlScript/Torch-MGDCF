@@ -4,7 +4,19 @@
 
 
 # Torch-MGDCF
-Source code (PyTorch) and dataset of the paper [MGDCF: Distance Learning via Markov Graph Diffusion for Neural Collaborative Filtering](https://arxiv.org/abs/2204.02338)
+Source code (PyTorch) and dataset of the paper "[MGDCF: Distance Learning via Markov Graph Diffusion for Neural Collaborative Filtering](https://arxiv.org/abs/2204.02338)", which is accepted by IEEE Transactions on Knowledge and Data Engineering (TKDE).
+
+
+
+## Implementations and Paper Links
+
++ PyTorch Implementation: [Torch-MGDCF](https://github.com/CrawlScript/Torch-MGDCF)
++ TensorFlow Implementation: [TensorFlow-MGDCF](https://github.com/hujunxianligong/MGDCF)
++ Paper Access:
+    - **IEEE Xplore**: [https://ieeexplore.ieee.org/document/10384729](https://ieeexplore.ieee.org/document/10384729)
+    - **ArXiv**: [https://arxiv.org/abs/2204.02338](https://arxiv.org/abs/2204.02338)
+
+
 
 
 
@@ -40,14 +52,14 @@ sh run_mgdcf_amazon-book.sh
 ## Cite
 
 ```
-@misc{https://doi.org/10.48550/arxiv.2204.02338,
-  doi = {10.48550/ARXIV.2204.02338},
-  url = {https://arxiv.org/abs/2204.02338},
-  author = {Jun Hu and Bryan Hooi and Shengsheng Qian and Quan Fang and Changsheng Xu},
-  keywords = {Social and Information Networks (cs.SI), Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title = {MGDCF: Distance Learning via Markov Graph Diffusion for Neural Collaborative Filtering},
-  publisher = {arXiv},
-  year = {2022},
-  copyright = {arXiv.org perpetual, non-exclusive license}
+@ARTICLE{10384729,
+  author={Jun Hu and Bryan Hooi and Shengsheng Qian and Quan Fang and Changsheng Xu},
+  journal={IEEE Transactions on Knowledge and Data Engineering}, 
+  title={MGDCF: Distance Learning via Markov Graph Diffusion for Neural Collaborative Filtering}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-16},
+  doi={10.1109/TKDE.2023.3348537}
 }
 ```
